@@ -23,7 +23,7 @@ RUN apt-get install -y wget default-jdk ant
 RUN wget -O $DL_DIR/$ANDROID_SDK_DIST $ANDROID_SDK_DIST_URL
 RUN tar -C $ANDROID_HOME -zxvf $DL_DIR/$ANDROID_SDK_DIST --strip-components=1
 RUN rm -f $DL_DIR/$ANDROID_SDK_DIST
-RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | $ANDROID_HOME/tools/android update sdk --no-ui --all
+RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | $ANDROID_HOME/tools/android update sdk -u --filter platform-tool,tool,android-$ANDROID_SDK_VERSION,extra,`$ANDROID_HOME/tools/android list sdk --extended | grep -oE '"build-tools-[^"]+"' | grep -oE '[^"]+' | head -n1`
 
 RUN apt-get install -y nodejs git npm
 RUN ln -s "$(which nodejs)" /usr/bin/node
