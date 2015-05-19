@@ -29,5 +29,6 @@ RUN apt-get install -y nodejs git npm
 RUN ln -s "$(which nodejs)" /usr/bin/node
 
 RUN apt-get install -y lib32stdc++6 lib32z1 # `codova build` will fail without this
+
 RUN npm install -g cordova
 RUN npm install -g grunt-cli
