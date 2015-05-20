@@ -32,4 +32,10 @@ RUN apt-get install -y lib32stdc++6 lib32z1 # `cordova build` will fail without 
 RUN npm install -g cordova
 RUN npm install -g grunt-cli
 
+RUN useradd -d "$JENKINS_HOME" -u 498 -m -s /bin/bash jenkins
+
+RUN mkdir /data
+RUN chown -R jenkins /data
+
+WORKDIR /data
 USER jenkins
