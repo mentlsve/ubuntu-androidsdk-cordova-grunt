@@ -8,7 +8,7 @@ ENV DL_DIR /tmp/downloads
 ENV ANDROID_SDK_DIST_URL http://dl.google.com/android/android-sdk_r24.2-linux.tgz
 ENV ANDROID_SDK_DIST android-sdk.tgz
 ENV ANDROID_HOME_ROOT /android
-ENV ANDROID_SDK_VERSION 24
+ENV ANDROID_SDK_VERSION 21
 
 RUN mkdir $ANDROID_HOME_ROOT
 ENV ANDROID_HOME $ANDROID_HOME_ROOT/sdk
