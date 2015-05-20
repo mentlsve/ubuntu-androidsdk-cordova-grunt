@@ -1,3 +1,7 @@
+# This Dockerfile is inspired by
+# https://registry.hub.docker.com/u/ugnb/ubuntu-cordova-android-build/
+# https://github.com/jenkinsci/docker/blob/master/Dockerfile 
+
 FROM ubuntu:14.04
 
 ENV DL_DIR /tmp/downloads 
@@ -33,6 +37,8 @@ RUN mkdir $JENKINS_HOME
 
 RUN useradd -d "$JENKINS_HOME" -u 498 -m -s /bin/bash jenkins
 RUN chown -R jenkins $JENKINS_HOME
+RUN chown -R jenkins $ANDROID_HOME
+RUN chown -R jenkins $ANDROID_HOME_ROOT
 
 USER jenkins
 WORKDIR $JENKINS_HOME
