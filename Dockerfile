@@ -10,10 +10,6 @@ RUN mkdir $ANDROID_HOME_ROOT
 ENV ANDROID_HOME $ANDROID_HOME_ROOT/sdk
 RUN mkdir $ANDROID_HOME
 
-ENV PATH $PATH:$ANDROID_HOME/tools
-ENV PATH $PATH:$ANDROID_HOME/platform-tools
-ENV PATH $PATH:$ANDROID_HOME/build-tools
-
 RUN apt-get update
 RUN apt-get install -y wget default-jdk ant
 
@@ -40,3 +36,9 @@ RUN chown -R jenkins $JENKINS_HOME
 
 USER jenkins
 WORKDIR $JENKINS_HOME
+
+ENV PATH $PATH:$ANDROID_HOME/tools
+ENV PATH $PATH:$ANDROID_HOME/platform-tools
+ENV PATH $PATH:$ANDROID_HOME/build-tools
+
+ENV ANDROID_HOME $ANDROID_HOME_ROOT/sdk
